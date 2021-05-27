@@ -2,7 +2,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.subsystems.*;
-import frc.robot.subsystems.ColorWheel.*;
 import frc.robot.subsystems.HangingMove.HangingMoveState;
 //import frc.robot.subsystems.HangingMove.*;
 import frc.robot.subsystems.Indexer.*;
@@ -35,10 +34,8 @@ public class TeleopControl{
     private static Joystick coDriver;
     private static Joystick ButtonLayout;
 
-    private static String foundColor;
-    private static int ColorCount;
+
     private static String gameData;
-    private static boolean colorFlag;
     private static boolean intakeDirectionFlag;
     private static boolean intakeFlipFlag = true;
     private static boolean toggleFlag;
@@ -285,7 +282,7 @@ public class TeleopControl{
         // -------------------------------------------------------------------------------------------------------
         // Lifter Control
         if(coDriver.getPOV() == 0){
-            LiftSystem.controlLifter(LifterState.FORWARD);
+            LiftSystem.controlLifter(LifterState.UP);
             HangingMove.controlMove(HangingMove.HangingMoveState.LEFT);
         }
         // else if(coDriver.getPOV() == 45){
@@ -298,12 +295,7 @@ public class TeleopControl{
         //     HangingMove.controlMove(HangingMove.HangingMoveState.RIGHT);
         //}
         else if(coDriver.getPOV() == 180){
-            LiftSystem.controlLifter(LifterState.REVERSE);
-            HangingMove.controlMove(HangingMove.HangingMoveState.RIGHT);
-        }
-        else if(coDriver.getRawButton(6)){
-            HangingMove.controlMove(HangingMove.HangingMoveState.LEFT);
-        }else if(coDriver.getRawButton(5)){
+            LiftSystem.controlLifter(LifterState.DOWN);
             HangingMove.controlMove(HangingMove.HangingMoveState.RIGHT);
         }
         // else if(coDriver.getPOV() == 225){
@@ -319,6 +311,7 @@ public class TeleopControl{
             HangingMove.controlMove(HangingMove.HangingMoveState.STOP);
             LiftSystem.controlLifter(LifterState.STOP);
         }
+
         if(coDriver.getRawButton(5)){
             HangingMove.controlMove(HangingMove.HangingMoveState.LEFT);
         } else if(coDriver.getRawButton(6)){

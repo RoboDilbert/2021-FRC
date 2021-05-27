@@ -20,7 +20,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
-    ColorWheel.init();
     Gyro.init();
     Drive.init();
     HangingMove.init();
