@@ -52,10 +52,10 @@ public class Constants{
 
     // Indexer
     public static final double feedIndexerSpeed = .4;
-    public static final double shootIndexerSpeed = .3;
+    public static final double shootIndexerSpeed = .3; //was .3 2020
 
 
-    public static final double shootIndexerShootSpeed = -.85;
+    public static final double shootIndexerShootSpeed = -.85; //was -.85 2020  //-.60 worked
     public static final double shooterMix = .5;
     // Intake
     public static final double intakeSpeed = .45;

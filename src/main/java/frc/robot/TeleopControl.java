@@ -113,7 +113,7 @@ public class TeleopControl{
         } else if (Intake.getSolenoidState() == Intake.IntakeSolenoid.DOWN && coDriver.getRawButton(1) && toggleFlag == false && Intake.getMotorState() != Intake.IntakeMotorState.FORWARD) {
             Robot.currentIntakeState = IntakeToggle.FORWARD;
         } else if ((coDriver.getRawButton(1) && toggleFlag == false && Intake.getMotorState() == Intake.IntakeMotorState.FORWARD) || 
-                            (coDriver.getRawButton(3) && toggleFlag == false && Intake.getMotorState() == Intake.IntakeMotorState.REVERSE)){
+            (coDriver.getRawButton(3) && toggleFlag == false && Intake.getMotorState() == Intake.IntakeMotorState.REVERSE)){
             Robot.currentIntakeState = IntakeToggle.STOP;
         }
 
@@ -297,6 +297,7 @@ public class TeleopControl{
         else if(coDriver.getPOV() == 180){
             LiftSystem.controlLifter(LifterState.DOWN);
             HangingMove.controlMove(HangingMove.HangingMoveState.RIGHT);
+            LiftSystem.lowerLifter();
         }
         // else if(coDriver.getPOV() == 225){
         //     LiftSystem.controlLifter(LifterState.REVERSE);
@@ -316,6 +317,13 @@ public class TeleopControl{
             HangingMove.controlMove(HangingMove.HangingMoveState.LEFT);
         } else if(coDriver.getRawButton(6)){
             HangingMove.controlMove(HangingMove.HangingMoveState.RIGHT);
+        }
+
+        if(coDriver.getRawButton(8)){
+            LiftSystem.raiseLifter();
+            Intake.dropIntake();
+        } else if(coDriver.getRawButton(7)){
+            LiftSystem.lowerLifter();
         }
         //-------------------------------------------------------------------------------------------------------
         //Compressor Shut Off

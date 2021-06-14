@@ -70,11 +70,11 @@ public class Intake {
     private static void powerIntake(SpeedController m_intake, IntakeMotorState value){
         if(value == IntakeMotorState.FORWARD){
             currentMotorState = IntakeMotorState.FORWARD;
-            m_intake.set(-Constants.intakeSpeed);
+            m_intake.set(Constants.intakeSpeed);
         }
         else if(value == IntakeMotorState.REVERSE){
             currentMotorState = IntakeMotorState.REVERSE;
-            m_intake.set(Constants.intakeSpeed);
+            m_intake.set(-Constants.intakeSpeed);
         }
         else if(value == IntakeMotorState.STOP){
             currentMotorState = IntakeMotorState.STOP;

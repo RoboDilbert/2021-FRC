@@ -57,12 +57,12 @@ public class LiftSystem{
 
     public static void lowerLifter(){
         currentSolenoidState = LifterSolenoid.DOWN;
-        lifterSolenoid.set(true);
+        lifterSolenoid.set(false);
     }
 
     public static void raiseLifter(){
         currentSolenoidState = LifterSolenoid.UP;
-        lifterSolenoid.set(false);
+        lifterSolenoid.set(true);
     }
 
     public void debugLift(){
