@@ -283,7 +283,7 @@ public class TeleopControl{
         // Lifter Control
         if(coDriver.getPOV() == 0){
             LiftSystem.controlLifter(LifterState.UP);
-            HangingMove.controlMove(HangingMove.HangingMoveState.LEFT);
+            //HangingMove.controlMove(HangingMove.HangingMoveState.LEFT);
         }
         // else if(coDriver.getPOV() == 45){
         //     LiftSystem.controlLifter(LifterState.FORWARD);
@@ -296,7 +296,7 @@ public class TeleopControl{
         //}
         else if(coDriver.getPOV() == 180){
             LiftSystem.controlLifter(LifterState.DOWN);
-            HangingMove.controlMove(HangingMove.HangingMoveState.RIGHT);
+            //HangingMove.controlMove(HangingMove.HangingMoveState.RIGHT);
             LiftSystem.lowerLifter();
         }
         // else if(coDriver.getPOV() == 225){
