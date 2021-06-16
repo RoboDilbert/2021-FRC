@@ -55,16 +55,16 @@ public class Constants{
     public static final double shootIndexerSpeed = .3; //was .3 2020
 
 
-    public static final double shootIndexerShootSpeed = -.85; //was -.85 2020  //-.60 worked
+    public static final double shootIndexerShootSpeed = -.40; //was -.85 2020  //-.60 worked
     public static final double shooterMix = .5;
     // Intake
-    public static final double intakeSpeed = .45;
+    public static final double intakeSpeed = .4; //2021 .45 start
 
     // LiftSystem
     public static final double lifterSpeedUp = .5;
     public static final double lifterSpeedDown = .5;
     // Shooter
-    public static final double shooterSpeed = .70;
+    public static final double shooterSpeed = .65; //.70
     public static boolean shootFlag = false;
     public static double calculatedPower = 0;
 

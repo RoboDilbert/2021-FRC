@@ -56,19 +56,20 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousPeriodic() {
-    if(TeleopControl.driver.getThrottle() > 0.75){
-     Routine.run();
-      Routine.debugAuto();
-    }
-    else if (TeleopControl.driver.getThrottle() < 0.25){
-      TrenchAuto.start();
-      Routine.debugAuto();
-      Indexer.debugIndexer();
-    }
-    else if(TeleopControl.driver.getThrottle() <= 0.75 && TeleopControl.driver.getThrottle() >= 0.25){
-     // Routine.run();
-      Routine.debugAuto();
-    }
+    Routine.run();
+    // if(TeleopControl.driver.getThrottle() > 0.75){
+    //  Routine.run();
+    //   //Routine.debugAuto();
+    // }
+    // else if (TeleopControl.driver.getThrottle() < 0.25){
+    //   TrenchAuto.start();
+    //   //Routine.debugAuto();
+    //   //Indexer.debugIndexer();
+    // }
+    // else if(TeleopControl.driver.getThrottle() <= 0.75 && TeleopControl.driver.getThrottle() >= 0.25){
+    //  // Routine.run();
+    //   Routine.debugAuto();
+    // }
     // switch (m_autoSelected) {
     //   case kCustomAuto:
     //     // Put custom auto code herea
@@ -101,7 +102,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledPeriodic(){
-
+    //SmartDashboard.putNumber("Throttle Value", TeleopControl.driver.getThrottle());
+    //SmartDashboard.updateValues();
   }
 
   @Override

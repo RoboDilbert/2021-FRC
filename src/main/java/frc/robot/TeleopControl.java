@@ -225,7 +225,7 @@ public class TeleopControl{
                     Robot.currentIntakeState = IntakeToggle.STOP;
                 }
                 if(firstBallFlag == true){
-                    if(Shooter.getShooterWheelSpeed() < 2100){
+                    if(Shooter.getShooterWheelSpeed() < 2100){ //2100
                         
                         Shooter.controlShooter(ShooterState.MIX);
                         if(autoIndex = false){
@@ -233,8 +233,9 @@ public class TeleopControl{
                         }
                         Indexer.controlIndexer(SelectIndexer.SHOOT, IndexerState.STOP);
                         firstBallFlag = false;
+                        SmartDashboard.putString("Shoot Section", "SECTION 1");
                     }
-                    else if (Shooter.getShooterWheelSpeed() > 2100) { //3300
+                    else if (Shooter.getShooterWheelSpeed() > 2100) { //2100
                         
                         if (autoIndex = false) {
                             Indexer.controlIndexer(SelectIndexer.FEEDER, IndexerState.FULLSPEED);
@@ -245,22 +246,25 @@ public class TeleopControl{
                         if(shooterClock == 15){
                             firstBallFlag = false; 
                         }
+                        SmartDashboard.putString("Shoot Section", "SECTION 2");
                     }
                 }
-                else if (Shooter.getShooterWheelSpeed() < 2300 && firstBallFlag == false || shooterClock < 25 && firstBallFlag == false) { //3300
+                else if (Shooter.getShooterWheelSpeed() < 2200 && firstBallFlag == false || shooterClock < 25 && firstBallFlag == false) { //2300
                     Shooter.controlShooter(ShooterState.FORWARD);
                     if(autoIndex = false){
                         Indexer.controlIndexer(SelectIndexer.FEEDER, IndexerState.STOP);
                     }
                     Indexer.controlIndexer(SelectIndexer.SHOOT, IndexerState.STOP);
                     shooterClock++;
+                    SmartDashboard.putString("Shoot Section", "SECTION 3");
                 }
-                else if (Shooter.getShooterWheelSpeed() > 2300) { //3300
+                else if (Shooter.getShooterWheelSpeed() > 2200) { //2300
                     Shooter.controlShooter(ShooterState.FORWARD);
                     if (autoIndex = false) {
                         Indexer.controlIndexer(SelectIndexer.FEEDER, IndexerState.FULLSPEED);
                     }
                     Indexer.controlIndexer(SelectIndexer.SHOOT, IndexerState.FULLSPEED);
+                    SmartDashboard.putString("Shoot Section", "SECTION 4");
                     SmartDashboard.updateValues();
                 }
                 Indexer.indexerClear();
@@ -337,7 +341,8 @@ public class TeleopControl{
         cameraY = Limelight.ty.getDouble(0.0);
         Drive.LineUpData();
         SmartDashboard.putNumber("Match Time", Timer.getMatchTime());
-        Limelight.debug();
+        //Limelight.debug();
+        Shooter.debugShooter();
         Indexer.debugIndexer();
         obstacleAvoidance.debugObstacle();
         SmartDashboard.updateValues();
