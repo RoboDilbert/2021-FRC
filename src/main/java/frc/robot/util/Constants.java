@@ -62,7 +62,7 @@ public class Constants{
 
     // LiftSystem
     public static final double lifterSpeedUp = .5;
-    public static final double lifterSpeedDown = .5;
+    public static final double lifterSpeedDown = .98;
     // Shooter
     public static final double shooterSpeed = .65; //.70
     public static boolean shootFlag = false;
