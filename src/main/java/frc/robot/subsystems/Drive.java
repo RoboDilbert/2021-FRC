@@ -1,3 +1,4 @@
+
 package frc.robot.subsystems;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
@@ -83,7 +84,28 @@ public class Drive{
         // if(Math.abs(stickZ) < zDeadband){
         //     stickZ = 0;
         // }
+
         my_Robot.driveCartesian(stickX, -stickY, stickZ, -roboGyro);
+        Drive.rightPPDistance = Drive.rightPP.getRange();
+                Drive.leftPPDistance = Drive.leftPP.getRange();
+        Drive.averagePPLength = (Drive.rightPPDistance + Drive.leftPPDistance)/2;
+    }
+
+    public static void runTeleop(double stickX, double stickY, double stickZ, double roboGyro){
+        double xDeadband = .07;
+        double yDeadband = .07;
+        double zDeadband = .05;
+        if(Math.abs(stickX) < xDeadband){
+            stickX = 0;
+        }
+        if(Math.abs(stickY) < yDeadband){
+            stickY = 0;
+        }
+        if(Math.abs(stickZ) < zDeadband){
+            stickZ = 0;
+        }
+
+        my_Robot.driveCartesian(stickX, -stickY, (stickZ * 1.55), -roboGyro);
         Drive.rightPPDistance = Drive.rightPP.getRange();
                 Drive.leftPPDistance = Drive.leftPP.getRange();
         Drive.averagePPLength = (Drive.rightPPDistance + Drive.leftPPDistance)/2;

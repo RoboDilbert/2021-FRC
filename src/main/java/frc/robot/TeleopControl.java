@@ -74,13 +74,13 @@ public class TeleopControl{
              Drive.lineUpShot();
         }
         else if (driver.getRawButton(4)){
-            Drive.run(driver.getX() / 4, driver.getY() / 4, driver.getZ() / 6, Constants.roboGyro);
+            Drive.runTeleop(driver.getX() / 4, driver.getY() / 4, driver.getZ() / 6, Constants.roboGyro);
         }
         else if(driver.getRawButton(5)){
             Drive.lockOn(driver.getX() * Constants.movementRestriction, driver.getY() * Constants.movementRestriction, Constants.roboGyro);
         }
         else{
-            Drive.run(driver.getX() * Constants.movementRestriction, driver.getY() * Constants.movementRestriction,
+            Drive.runTeleop(driver.getX() * Constants.movementRestriction, driver.getY() * Constants.movementRestriction,
                     driver.getZ() / 3, Constants.roboGyro);
             Limelight.setLedMode(LightMode.OFF);
             Drive.tInPosition = false;
